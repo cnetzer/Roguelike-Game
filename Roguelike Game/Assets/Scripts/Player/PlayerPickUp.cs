@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerPickUp : MonoBehaviour
 {
@@ -14,10 +15,5 @@ public class PlayerPickUp : MonoBehaviour
         
         inventory.AddItem(item.item, 1);
         Destroy(col.gameObject);
-    }
-
-    private void OnApplicationQuit()
-    {
-        inventory.inventory.Clear();
     }
 }
