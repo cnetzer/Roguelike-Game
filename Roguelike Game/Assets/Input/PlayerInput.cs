@@ -44,6 +44,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""de0a71e6-fc9b-4e22-95ce-6cb7519cf468"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CharacterInfo"",
+                    ""type"": ""Button"",
+                    ""id"": ""d8c76fe8-3f91-4513-8dd7-d870f695a8d6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -167,6 +185,50 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8fe1bd6-e295-46bd-800c-cdeba50cf37c"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d5365dbf-9b2f-4a83-86ab-8e0a01c20ead"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20c5b73f-461e-46cf-a252-11d621dc035f"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CharacterInfo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08a57669-a130-4bdd-a6fe-94fd4aa10cea"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CharacterInfo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -177,6 +239,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
         m_Default_Movement = m_Default.FindAction("Movement", throwIfNotFound: true);
         m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
+        m_Default_Inventory = m_Default.FindAction("Inventory", throwIfNotFound: true);
+        m_Default_CharacterInfo = m_Default.FindAction("CharacterInfo", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,12 +302,16 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IDefaultActions m_DefaultActionsCallbackInterface;
     private readonly InputAction m_Default_Movement;
     private readonly InputAction m_Default_Jump;
+    private readonly InputAction m_Default_Inventory;
+    private readonly InputAction m_Default_CharacterInfo;
     public struct DefaultActions
     {
         private @PlayerInput m_Wrapper;
         public DefaultActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Default_Movement;
         public InputAction @Jump => m_Wrapper.m_Default_Jump;
+        public InputAction @Inventory => m_Wrapper.m_Default_Inventory;
+        public InputAction @CharacterInfo => m_Wrapper.m_Default_CharacterInfo;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -259,6 +327,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJump;
+                @Inventory.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnInventory;
+                @Inventory.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnInventory;
+                @Inventory.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnInventory;
+                @CharacterInfo.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCharacterInfo;
+                @CharacterInfo.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCharacterInfo;
+                @CharacterInfo.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnCharacterInfo;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -269,6 +343,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Inventory.started += instance.OnInventory;
+                @Inventory.performed += instance.OnInventory;
+                @Inventory.canceled += instance.OnInventory;
+                @CharacterInfo.started += instance.OnCharacterInfo;
+                @CharacterInfo.performed += instance.OnCharacterInfo;
+                @CharacterInfo.canceled += instance.OnCharacterInfo;
             }
         }
     }
@@ -277,5 +357,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
+        void OnCharacterInfo(InputAction.CallbackContext context);
     }
 }
