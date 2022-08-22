@@ -46,6 +46,24 @@ public class InventorySystem : ScriptableObject
         return null;
     }
 
+    public void MoveItem(InventorySlot item1, InventorySlot item2)
+    {
+        var temp = new InventorySlot(item2.id, item2.item, item2.stackSize);
+        item2.UpdateSlot(item1.id, item1.item, item1.stackSize);
+        item1.UpdateSlot(temp.id, temp.item, temp.stackSize);
+    }
+
+    public void RemoveItem(Item _item)
+    {
+        for (var i = 0; i < inventory.items.Length; i++)
+        {
+            if (inventory.items[i].item == _item)
+            {
+                inventory.items[i].UpdateSlot(-1, null, 0);
+            }
+        }
+    }
+
     [ContextMenu("Save")]
     public void Save()
     {
@@ -75,14 +93,21 @@ public class InventorySystem : ScriptableObject
         var formatter = new BinaryFormatter();
         var stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open,
             FileAccess.Read);
-        inventory = (Inventory) formatter.Deserialize(stream);
+        var newInventory = (Inventory) formatter.Deserialize(stream);
+        for (var i = 0; i < inventory.items.Length; i++)
+        {
+            inventory.items[i].UpdateSlot(newInventory.items[i].id, newInventory.items[i].item, newInventory.items[i].stackSize);
+        }
         stream.Close();
     }
 
     [ContextMenu("Clear")]
     public void Clear()
     {
-        inventory = new Inventory();
+        for (var i = 0; i < inventory.items.Length; i++)
+        {
+            RemoveItem(inventory.items[i].item);
+        }
     }
 }
 
