@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 4fbb2133a6346884692b8efac8d0469c, type: 2}
+  equipment: {fileID: 11400000, guid: cdd813a290101314cabd03f782708b13, type: 2}
 --- !u!1 &6086447021119393850
 GameObject:
   m_ObjectHideFlags: 0

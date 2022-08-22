@@ -145,7 +145,7 @@ public class Inventory
     {
         for (var i = 0; i < items.Length; i++)
         {
-            items[i].UpdateSlot(null, 0);
+            items[i].RemoveItem();
         }
     }
 }
@@ -153,6 +153,7 @@ public class Inventory
 public class InventorySlot
 {
     public ItemType[] AllowedItems = new ItemType[0];
+    [System.NonSerialized]
     public UserInterface parent;
     public Item item;
     public int stackSize;
@@ -172,7 +173,7 @@ public class InventorySlot
     
     public InventorySlot()
     {
-        item = null;
+        item = new Item();
         stackSize = 0;
     }
     

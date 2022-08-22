@@ -12,8 +12,8 @@ public class PlayerPickUp : MonoBehaviour
     {
         var item = col.GetComponent<GroundItem>();
         if (!item) return;
+        if (!inventory.AddItem(new Item(item.item), 1)) return;
         
-        inventory.AddItem(new Item(item.item), 1);
         Destroy(col.gameObject);
     }
 }

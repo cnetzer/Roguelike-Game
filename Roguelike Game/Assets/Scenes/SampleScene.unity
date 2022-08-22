@@ -444,6 +444,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1884780422013324320, guid: 17a18037c0a5a604e9a2eef4bf02d767, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d47750b264aa6947be36cb38f565488, type: 3}
     - target: {fileID: 6868219700163873385, guid: 17a18037c0a5a604e9a2eef4bf02d767, type: 3}
       propertyPath: m_Name
       value: apple (1)
@@ -654,6 +658,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1884780422013324320, guid: 17a18037c0a5a604e9a2eef4bf02d767, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d47750b264aa6947be36cb38f565488, type: 3}
     - target: {fileID: 6868219700163873385, guid: 17a18037c0a5a604e9a2eef4bf02d767, type: 3}
       propertyPath: m_Name
       value: apple
@@ -761,7 +769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d779eca2080b743b7f6149b4de660d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2038522826}
   inventory: {fileID: 11400000, guid: cdd813a290101314cabd03f782708b13, type: 2}
   slots:
   - {fileID: 1473089087}
@@ -1939,6 +1946,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261569196575303824, guid: db07016d0ed0f3e4a96071c10c3e7c37, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 68c5bb921b5be324cabf82a18bf2dc81, type: 3}
     - target: {fileID: 261569196575303825, guid: db07016d0ed0f3e4a96071c10c3e7c37, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -2146,6 +2157,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2676896325872483062, guid: 5f1dbdb32397daf47820cf81245d5578, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: af5b0b39389ff5145a3fd9bf084aa70a, type: 3}
     - target: {fileID: 3226810923750480823, guid: 5f1dbdb32397daf47820cf81245d5578, type: 3}
       propertyPath: m_Name
       value: Stick
@@ -3117,6 +3132,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261569196575303824, guid: db07016d0ed0f3e4a96071c10c3e7c37, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 68c5bb921b5be324cabf82a18bf2dc81, type: 3}
     - target: {fileID: 261569196575303825, guid: db07016d0ed0f3e4a96071c10c3e7c37, type: 3}
       propertyPath: m_RootOrder
       value: 1
