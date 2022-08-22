@@ -8,7 +8,6 @@ public class FoodItemData : InventoryItemData
 {
     private void Awake()
     {
-        stackable = true;
         type = ItemType.Food;
     }
 }
