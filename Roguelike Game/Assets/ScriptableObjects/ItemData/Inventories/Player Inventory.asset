@@ -12,173 +12,149 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b3bae2021b9d245b80529b66808f6f, type: 3}
   m_Name: Player Inventory
   m_EditorClassIdentifier: 
-  savePath: /inventory.save
+  savePath: /inventory.Save
   database: {fileID: 11400000, guid: 6679f2a0b8a52c441b8e47a7927f1f94, type: 2}
   inventory:
     items:
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
         buffs: []
       stackSize: 0
     - AllowedItems: 
-      parent: {fileID: 0}
       item:
         Name: 
         Id: -1
