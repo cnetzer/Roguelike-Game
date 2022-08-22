@@ -6,77 +6,113 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
-public class InventorySystem : ScriptableObject, ISerializationCallbackReceiver
+public class InventorySystem : ScriptableObject
 {
     public string savePath;
-    private ItemDatabase _database;
-    public List<InventorySlot> inventory = new List<InventorySlot>();
-
-    private void OnEnable()
+    public ItemDatabase database;
+    public Inventory inventory;
+    
+    public void AddItem(Item item, int amount)
     {
-#if UNITY_EDITOR
-        _database = (ItemDatabase) AssetDatabase.LoadAssetAtPath("Assets/Resources/Database.asset",
-            typeof(ItemDatabase));
-#else
-        _database = Resources.Load<ItemDatabase>("Database");        
-#endif
-    }
-
-    public void AddItem(InventoryItemData item, int amount)
-    {
-        for (var i = 0; i < inventory.Count; i++)
+        if (item.buffs.Length > 0)
         {
-            if (inventory[i].item == item)
+            SetEmptySlot(item, amount);
+            return;
+        }
+        
+        for (var i = 0; i < inventory.items.Length; i++)
+        {
+            if (inventory.items[i].id == item.Id)
             {
-                inventory[i].Add(amount);
+                inventory.items[i].Add(amount);
                 return;
             }
         }
 
-        inventory.Add(new InventorySlot(_database.GetId[item], item, amount));
-
+        SetEmptySlot(item, amount);
+    }
+    
+    public InventorySlot SetEmptySlot(Item _item, int _amount)
+    {
+        for (var i = 0; i < inventory.items.Length; i++)
+        {
+            if (inventory.items[i].id <= -1)
+            {
+                inventory.items[i].UpdateSlot(_item.Id, _item, _amount);
+                return inventory.items[i];
+            }
+        }
+        // what happens if inventory is full
+        return null;
     }
 
+    [ContextMenu("Save")]
     public void Save()
     {
-        var saveData = JsonUtility.ToJson(this, true);
-        var bf = new BinaryFormatter();
-        var file = File.Create(string.Concat(Application.persistentDataPath, savePath));
-        bf.Serialize(file, saveData);
-        file.Close();
+        // var saveData = JsonUtility.ToJson(this, true);
+        // var bf = new BinaryFormatter();
+        // var file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+        // bf.Serialize(file, saveData);
+        // file.Close();
+
+        var formatter = new BinaryFormatter();
+        var stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Create,
+            FileAccess.Write);
+        formatter.Serialize(stream, inventory);
+        stream.Close();
     }
 
+    [ContextMenu("Load")]
     public void Load()
     {
-        if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
-        {
-            var bf = new BinaryFormatter();
-            var file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
-            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
-            file.Close();
-        }
-    }
-
-    public void OnBeforeSerialize()
-    {
+        if (!File.Exists(string.Concat(Application.persistentDataPath, savePath))) return;
         
+        // var bf = new BinaryFormatter();
+        // var file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
+        // JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
+        // file.Close();
+
+        var formatter = new BinaryFormatter();
+        var stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open,
+            FileAccess.Read);
+        inventory = (Inventory) formatter.Deserialize(stream);
+        stream.Close();
     }
 
-    public void OnAfterDeserialize()
+    [ContextMenu("Clear")]
+    public void Clear()
     {
-        for (var i = 0; i < inventory.Count; i++)
-            inventory[i].item = _database.GetItem[inventory[i].id];
+        inventory = new Inventory();
     }
 }
 
 [System.Serializable]
+public class Inventory
+{
+    public InventorySlot[] items = new InventorySlot[24];
+}
+[System.Serializable]
 public class InventorySlot
 {
-    public int id;
-    public InventoryItemData item;
+    public int id = -1;
+    public Item item;
     public int stackSize;
 
-    public InventorySlot(int refId, InventoryItemData data, int amount)
+    public InventorySlot()
+    {
+        id = -1;
+        item = null;
+        stackSize = 0;
+    }
+    
+    public void UpdateSlot(int refId, Item data, int amount)
+    {
+        id = refId;
+        item = data;
+        stackSize = amount;
+    }
+    
+    public InventorySlot(int refId, Item data, int amount)
     {
         id = refId;
         item = data;

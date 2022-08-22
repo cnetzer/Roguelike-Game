@@ -10,10 +10,10 @@ public class PlayerPickUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        var item = col.GetComponent<InventoryItem>();
+        var item = col.GetComponent<GroundItem>();
         if (!item) return;
         
-        inventory.AddItem(item.item, 1);
+        inventory.AddItem(new Item(item.item), 1);
         Destroy(col.gameObject);
     }
 }

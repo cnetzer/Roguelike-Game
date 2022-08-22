@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4c56546b78fb9429ecefa5240cc987, type: 3}
   m_Name: Stick
   m_EditorClassIdentifier: 
-  id: 0
+  Id: 0
   displayName: Stick
   description: A normal stick. Not quite special, but it might come in handy.
   icon: {fileID: 21300000, guid: 94a3c295505a49047a545d046c07edd7, type: 3}
   type: 0
-  prefab: {fileID: 7995070737289413476, guid: b294daf87993d0c4492d0d12a94c87a1, type: 3}
+  uiDisplay: {fileID: 21300000, guid: 94a3c295505a49047a545d046c07edd7, type: 3}

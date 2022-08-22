@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703627c758d408742a1437ccd4d81d11, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  id: 1
+  Id: 1
   displayName: Apple
   description: Not the most exquisite meal, but a nice snack.
   icon: {fileID: 21300000, guid: c4df05db977f7cc48b0a6d960a68b024, type: 3}
   type: 1
-  prefab: {fileID: 5976315251677224303, guid: 28321fb702c9b2248889c17ebe3162da, type: 3}
+  uiDisplay: {fileID: 21300000, guid: c4df05db977f7cc48b0a6d960a68b024, type: 3}
   restoreHealthValue: 10

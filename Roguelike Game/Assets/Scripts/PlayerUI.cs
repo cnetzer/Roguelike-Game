@@ -8,7 +8,7 @@ public class PlayerUI : MonoBehaviour
 
     private void Start()
     {
-        inventory.SetActive(false);
+        //inventory.SetActive(false);
         characterInfo.SetActive(false);
     }
 

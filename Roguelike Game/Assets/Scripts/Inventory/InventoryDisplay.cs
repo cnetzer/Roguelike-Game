@@ -1,55 +1,62 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryDisplay : MonoBehaviour
 {
     public InventorySystem inventory;
+    public GameObject inventoryPrefab;
 
     public int X_START;
     public int Y_START;
     public int X_SPACE_BETWEEN_ITEM;
     public int NUMBER_OF_COLUMN;
     public int Y_SPACE_BETWEEN_ITEMS;
-    private Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
+    private Dictionary<GameObject, InventorySlot> itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
 
     private void Start()
     {
-        CreateDisplay();
+        CreateSlots();
     }
 
     private void Update()
     {
-        UpdateDisplay();
+        UpdateSlots();
     }
 
-    private void CreateDisplay()
+    public void UpdateSlots()
     {
-        for (var i = 0; i < inventory.inventory.Count; i++)
+        foreach (var slot in itemsDisplayed)
         {
-            var obj = Instantiate(inventory.inventory[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
-            obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.inventory[i].stackSize.ToString("n0");
-        }
-    }
-
-    private void UpdateDisplay()
-    {
-        for (var i = 0; i < inventory.inventory.Count; i++)
-        {
-            if (itemsDisplayed.ContainsKey(inventory.inventory[i]))
+            if (slot.Value.id >= 0)
             {
-                itemsDisplayed[inventory.inventory[i]].GetComponentInChildren<TextMeshProUGUI>().text =
-                    inventory.inventory[i].stackSize.ToString("n0");
+                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite =
+                    inventory.database.GetItem[slot.Value.item.Id].uiDisplay;
+                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 1);
+                slot.Key.GetComponentInChildren<TextMeshProUGUI>().text =
+                    slot.Value.stackSize == 1 ? "" : slot.Value.stackSize.ToString("n0");
             }
             else
             {
-                var obj = Instantiate(inventory.inventory[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
-                obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
-                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.inventory[i].stackSize.ToString("n0");
-                itemsDisplayed.Add(inventory.inventory[i], obj);
+                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
+                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = new Color(1, 1, 1, 0);
+                slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = "";
             }
+        }
+    }
+
+    private void CreateSlots()
+    {
+        itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
+        for (var i = 0; i < inventory.inventory.items.Length; i++)
+        {
+            var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
+            obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+            
+            itemsDisplayed.Add(obj, inventory.inventory.items[i]);
         }
     }
 

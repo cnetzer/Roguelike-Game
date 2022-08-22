@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391b53c68ef96644c8b11d57474d9759, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  id: 3
+  Id: 2
   displayName: Sword
   description: 
-  icon: {fileID: 0}
   type: 2
-  prefab: {fileID: 5839352568748158335, guid: ac550724007124f48a09c66d5b8dbb5a, type: 3}
-  damage: 4
+  uiDisplay: {fileID: 21300000, guid: 52c330d644e751c4abf2592266bf4963, type: 3}
+  buffs:
+  - attribute: 0
+    value: 0
+    min: 3
+    max: 7
+  - attribute: 1
+    value: 0
+    min: 20
+    max: 30

@@ -13,4 +13,150 @@ MonoBehaviour:
   m_Name: Player Inventory
   m_EditorClassIdentifier: 
   savePath: /inventory.save
-  inventory: []
+  database: {fileID: 11400000, guid: 6679f2a0b8a52c441b8e47a7927f1f94, type: 2}
+  inventory:
+    items:
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0
+    - id: -1
+      item:
+        Name: 
+        Id: 0
+        buffs: []
+      stackSize: 0

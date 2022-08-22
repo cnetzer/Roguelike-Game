@@ -15,6 +15,6 @@ public class SaveManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         inventory.Save();
-        inventory.inventory.Clear();
+        inventory.inventory.items = new InventorySlot[24];
     }
 }
