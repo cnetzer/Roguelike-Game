@@ -188,6 +188,17 @@
                 },
                 {
                     "name": "",
+                    "id": "191e16eb-5ff8-4d7d-82d3-804967c903d3",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "20c5b73f-461e-46cf-a252-11d621dc035f",
                     "path": "<Keyboard>/c",
                     "interactions": "",

@@ -6,6 +6,7 @@ public class DefaultItemData : InventoryItemData
 {
     private void Awake()
     {
+        stackable = true;
         type = ItemType.Default;
     }
 }

@@ -5,7 +5,9 @@ public enum ItemType
     Default,
     Food,
     Weapon,
-    Equipment
+    Helmet,
+    Chest,
+    Boots
 }
 
 public enum Attributes
@@ -16,13 +18,13 @@ public enum Attributes
 
 public abstract class InventoryItemData : ScriptableObject
 {
-    public int Id;
     public string displayName;
     [TextArea(15, 20)] public string description;
     public ItemType type;
     public Sprite uiDisplay;
-    public ItemBuff[] buffs;
-
+    public bool stackable;
+    public Item data = new Item();
+    
     public Item CreateItem()
     {
         var newItem = new Item(this);
@@ -34,18 +36,27 @@ public abstract class InventoryItemData : ScriptableObject
 public class Item
 {
     public string Name;
-    public int Id;
+    public int Id = -1;
     public ItemBuff[] buffs;
 
+    public Item()
+    {
+        Name = "";
+        Id = -1;
+    }
+    
     public Item(InventoryItemData item)
     {
         Name = item.name;
-        Id = item.Id;
-        buffs = new ItemBuff[item.buffs.Length];
+        Id = item.data.Id;
+        buffs = new ItemBuff[item.data.buffs.Length];
+
         for (var i = 0; i < buffs.Length; i++)
         {
-            buffs[i] = new ItemBuff(item.buffs[i].min, item.buffs[i].max);
-            buffs[i].attribute = item.buffs[i].attribute;
+            buffs[i] = new ItemBuff(item.data.buffs[i].min, item.data.buffs[i].max)
+            {
+                attribute = item.data.buffs[i].attribute
+            };
         }
     }
 }

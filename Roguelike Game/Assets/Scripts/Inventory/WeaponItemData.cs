@@ -6,6 +6,7 @@ public class WeaponItemData : InventoryItemData
 {
     private void Awake()
     {
+        stackable = false;
         type = ItemType.Weapon;
     }
 }

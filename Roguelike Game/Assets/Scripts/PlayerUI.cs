@@ -5,6 +5,7 @@ public class PlayerUI : MonoBehaviour
 {
     [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject characterInfo;
+    
 
     private void Start()
     {
